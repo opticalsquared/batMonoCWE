@@ -25,7 +25,7 @@ body {
 </style>
 <body>
     <p style="font-size:40px;position:fixed;top:-6%;text-align:center;" class="buttong"><b>Battle Monopoly</b> Game Manager</p>
-<p id="text" style="position:fixed;top:10%;text-align:center;" class="buttong"> </p>
+<p id="text" style="position:fixed;top:10%;text-align:center;" class="buttong">Player 1's Soldiers: 3000 | Player 2's Soldiers: 3000</p>
 <button id="buttonp1bl" onclick="lop1b()" style="width:98%; position:fixed;bottom:6%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Landed on P1's Battlefield</i></button>
 <button id="buttonp2bl" onclick="lop2b()" style="width:98%; position:fixed;bottom:1%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Landed on P2's Battlefield</i></button>
 <script>
@@ -35,13 +35,13 @@ body {
      document.getElementById("text").innerHTML = "Player 1's Soldiers: "+ p1 +" | Player 2's Soldiers: " + p2   
     }
 function lop1b() { //lop1b = Landed on player 1's Battlefield(s)
-    p2 = p2 * 0.99;
-    p1 = p1 * 1.001;
+    p2 = Math.floor(p2 * 0.99);
+    p1 = Math.floor(p1 * 1.001);
     text();
 }
 function lop2b() { //lop2b = Landed on player 2's Battlefield(s)
-    p1 = p1 * 0.99;
-    p2 = p2 * 1.001;
+    p1 = Math.floor(p1 * 0.99);
+    p2 = Math.floor(p2 * 1.001);
     text();
 }
 </script>
