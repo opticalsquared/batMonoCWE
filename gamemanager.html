@@ -25,23 +25,20 @@ body {
 }
 </style>
 <body>
-    <p style="font-size:40px;position:fixed;top:-6%;text-align:center;" class="buttong"><b>Battle Monopoly</b> Chance Space!</p>
-<p id="text" style="position:fixed;top:10%;text-align:center;" class="buttong">Click the Button!</p>
-<button id="button" onclick="chance()" style="width:98%; position:fixed;bottom:1%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Roll The Dice</i></button>
+    <p style="font-size:40px;position:fixed;top:-6%;text-align:center;" class="buttong"><b>Battle Monopoly</b> Game Manager</p>
+<p id="text" style="position:fixed;top:10%;text-align:center;" class="buttong"> </p>
+<button id="buttonp1bl" onclick="lop1b()" style="width:98%; position:fixed;bottom:1%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Landed on P1's Battlefield</i></button>
+<button id="buttonp2bl" onclick="lop2b()" style="width:98%; position:fixed;bottom:1%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Landed on P2's Battlefield</i></button>
 <script>
-function chance() {
-var good = Math.random() * 5;
-    if (good <= 1.5) {
-        document.getElementById("text").innerHTML = "You gained " + Math.floor(((Math.random() * 3000)+(Math.random() * 1500))/2) +" Soldiers!";
-    } else if (good <= 2.5) {
-        document.getElementById("text").innerHTML = "You lost " + Math.floor(((Math.random() * 3000)+(Math.random() * 500))/2) +" Soldiers!";
-    } else if (good <= 3.5) {
-        document.getElementById("text").innerHTML = "" + Math.floor(((Math.random() * 1000)+(Math.random() * 900))/2) +" of your Soldiers were captured by the other player!";
-    } else if (good <= 4.5) {
-        document.getElementById("text").innerHTML = "Get Out of Jail Free!";
-    } else if (good <= 5 && good > 4.5) {
-        document.getElementById("text").innerHTML = "Both players gain "+ Math.floor(((Math.random() * 500)+(Math.random() * 200))/2) +" Soldiers!";
-    }
+    var p1 = 3000;
+    var p2 = 3000;
+function lop1b() { //lop1b = Landed on player 1's Battlefield(s)
+    p2 = p2 * 0.99;
+    p1 = p1 * 1.001;
+}
+function lop2b() { //lop2b = Landed on player 2's Battlefield(s)
+    p1 = p1 * 0.99;
+    p2 = p2 * 1.001;
 }
 </script>
 </body>
