@@ -28,9 +28,25 @@ body {
 <p id="text" style="position:fixed;top:10%;text-align:center;" class="buttong">Player 1's Soldiers: 3000 | Player 2's Soldiers: 3000</p>
 <button id="buttonp1bl" onclick="lop1b()" style="width:98%; position:fixed;bottom:6%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Landed on P1's Battlefield</i></button>
 <button id="buttonp2bl" onclick="lop2b()" style="width:98%; position:fixed;bottom:1%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Landed on P2's Battlefield</i></button>
+<button id="buttoncb" onclick="challengeBattlefield(selBattlefield)" style="width:98%; position:fixed;bottom:11%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Challenge Battlefield</i></button>
 <script>
     var p1 = 3000;
     var p2 = 3000;
+    var selBattlefield = 1;
+    /*
+    Battlefields:
+    Gettysburg, Brandy Station, Middleburg       , Big Black River Bridge
+    Belmont   , Big Bethel    , Philippi         , Fort Sumter
+    Antietam  , South Mountain, Seven Says Battle, Hampton Roads
+    Shiloh    , Fort Donelson , Fort Henry       , Fredericksburg
+    */
+    var battlefields = [0,0,0,0, //1: Player 1 | 0: Unowned | -1: Player 2
+                        0,0,0,0,
+                        0,0,0,0,
+                        0,0,0,0];
+    function challengeBattlefield(input) {
+        
+    }
     function text() {
      document.getElementById("text").innerHTML = "Player 1's Soldiers: "+ p1 +" | Player 2's Soldiers: " + p2   
     }
