@@ -35,13 +35,13 @@ body {
      document.getElementById("text").innerHTML = "Player 1's Soldiers: "+ p1 +" | Player 2's Soldiers: " + p2   
     }
 function lop1b() { //lop1b = Landed on player 1's Battlefield(s)
-    p2 = Math.floor(p2 * 0.99);
-    p1 = Math.floor(p1 * 1.001);
+    p2 = Math.ceil(p2 * 0.99);
+    p1 = Math.ceil(p1 * 1.001);
     text();
 }
 function lop2b() { //lop2b = Landed on player 2's Battlefield(s)
-    p1 = Math.floor(p1 * 0.99);
-    p2 = Math.floor(p2 * 1.001);
+    p1 = Math.ceil(p1 * 0.99);
+    p2 = Math.ceil(p2 * 1.001);
     text();
 }
 </script>
