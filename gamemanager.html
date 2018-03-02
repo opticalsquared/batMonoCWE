@@ -33,7 +33,7 @@ body {
 <button id="buttonsb" onclick="go(1)" style="width:98%; position:fixed;left:1%;bottom:26%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Player 1 Passed Go</i></button>
 <button id="buttonsb" onclick="go(2)" style="width:98%; position:fixed;left:1%;bottom:21%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Player 2 Passed Go</i></button>
 <button id="buttonrob" onclick="roll()" style="width:98%; position:fixed;left:1%;bottom:31%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Roll Dice</i></button>
-<button id="buttonplr" onclick="selplay()" style="width:98%; position:fixed;left:1%;bottom:36%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Select Player | Player 1</i></button>
+<button id="buttonplr" onclick="selplayr()" style="width:98%; position:fixed;left:1%;bottom:36%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Select Player | Player 1</i></button>
 <script>
     var p1 = 3000;
     var p2 = 3000;
@@ -46,7 +46,7 @@ body {
     Antietam  , South Mountain, Seven Days Battle, Hampton Roads
     Shiloh    , Fort Donelson , Fort Henry       , Fredericksburg
     */
-    function selplay() {
+    function selplayr() {
      if (selplay == 1) {selplay = 2} else {selplay = 1}
         document.getElementById("buttonplr").innerHTML = "Select Player | Player "+ selplay
     }
