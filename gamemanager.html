@@ -49,12 +49,25 @@ body {
         text();
     }
     function roll() {
-        document.getElementById("buttonrob").innerHTML = "Roll Dice | Last Roll: " + Math.random()*6 +" and "+ Math.random()*6
+        document.getElementById("buttonrob").innerHTML = "Roll Dice | Last Roll: " + Math.ceil(Math.random()*6) +" and "+ Math.ceil(Math.random()*6)
     }
     var battlefields = [0,0,0,0, //1: Player 1 | 0: Unowned | -1: Player 2
                         0,0,0,0,
                         0,0,0,0,
                         0,0,0,0];
+    var battlefieldSoldiers = [0,0,0,0, //1: Player 1 | 0: Unowned | -1: Player 2
+                               0,0,0,0,
+                               0,0,0,0,
+                               0,0,0,0];
+    function labelField() {
+     if (battlefields[selBattlefield] == 1) {
+         document.getElementById("buttoncb").innerHTML = "Battle Field Owned by Player 1 | Challenge Battlefield"
+     } else if (battlefields[selBattlefield] == 0) {
+         document.getElementById("buttoncb").innerHTML = "Battle Field Unowned| Challenge Battlefield"
+     } else if (battlefields[selBattlefield] == -1) {
+         document.getElementById("buttoncb").innerHTML = "Battle Field Owned by Player 2| Challenge Battlefield"
+     }
+    }
     function swapBattlefield() {
         selBattlefield = selBattlefield + 1;
         if (selBattlefield > 15) {
@@ -93,10 +106,11 @@ body {
         } else if(selBattlefield == 15){
         battlefieldName = "Fredericksburg";
         }
+        labelField();
         document.getElementById("buttonsb").innerHTML = "Battlefield: "+ battlefieldName +" | Click to Swap";
     }
     function challengeBattlefield(input) {
-        if (input == 1) {
+        if (battlefields[input] == 1) {
             
         }
     }
