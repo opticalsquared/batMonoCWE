@@ -33,10 +33,12 @@ body {
 <button id="buttonsb" onclick="go(1)" style="width:98%; position:fixed;left:1%;bottom:26%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Player 1 Passed Go</i></button>
 <button id="buttonsb" onclick="go(2)" style="width:98%; position:fixed;left:1%;bottom:21%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Player 2 Passed Go</i></button>
 <button id="buttonrob" onclick="roll()" style="width:98%; position:fixed;left:1%;bottom:31%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Roll Dice</i></button>
+<button id="buttonplr" onclick="selplay()" style="width:98%; position:fixed;left:1%;bottom:36%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Select Player | Player 1</i></button>
 <script>
     var p1 = 3000;
     var p2 = 3000;
     var selBattlefield = 0;
+    var selplay = 1;
     /*
     Battlefields:
     Gettysburg, Brandy Station, Middleburg       , Big Black River Bridge
@@ -44,6 +46,10 @@ body {
     Antietam  , South Mountain, Seven Days Battle, Hampton Roads
     Shiloh    , Fort Donelson , Fort Henry       , Fredericksburg
     */
+    function selplay() {
+     if (selplay == 1) {selplay = 2} else {selplay = 1}
+        document.getElementById("buttonplr").innerHTML = "Select Player | Player "+ selplay
+    }
     function go(player) {
         if (player == 1) { p1 = p1 + 1000; } else { p2 = p2 + 1000;}
         text();
@@ -55,10 +61,6 @@ body {
                         0,0,0,0,
                         0,0,0,0,
                         0,0,0,0];
-    var battlefieldSoldiers = [0,0,0,0, //1: Player 1 | 0: Unowned | -1: Player 2
-                               0,0,0,0,
-                               0,0,0,0,
-                               0,0,0,0];
     function labelField() {
      if (battlefields[selBattlefield] == 1) {
          document.getElementById("buttoncb").innerHTML = "Battle Field Owned by Player 1 | Challenge Battlefield"
@@ -109,10 +111,21 @@ body {
         labelField();
         document.getElementById("buttonsb").innerHTML = "Battlefield: "+ battlefieldName +" | Click to Swap";
     }
+    var battlefieldSoldiers = [93921,9500,6400,2000, //1: Player 1 | 0: Unowned | -1: Player 2
+                               4050,1400,3000,500,
+                               75300,28000,92000,300,
+                               66000,24000,15000,72500];
     function challengeBattlefield(input) {
-        if (battlefields[input] == 1) {
-            
+        if (selplay == 1) {
+            if (p1 - battlefieldSoldiers[selBattlefield] > 0) {
+            p1 = p1 - battlefieldSoldiers[selBattlefield]
+            battlefields[selBattlefield] = 1}
+        } else if (selplay == 2) {
+            if (p2 - battlefieldSoldiers[selBattlefield] > 0) {
+            p2 = p2 - battlefieldSoldiers[selBattlefield]
+            battlefields[selBattlefield] = 2}
         }
+        labelField();
     }
     function text() {
      document.getElementById("text").innerHTML = "Player 1's Soldiers: "+ p1 +" | Player 2's Soldiers: " + p2   
