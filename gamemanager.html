@@ -32,6 +32,7 @@ body {
 <button id="buttonsb" onclick="swapBattlefield()" style="width:98%; position:fixed;left:1%;bottom:16%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Battlefield: Gettysburg | Click to Swap</i></button>>
 <button id="buttonsb" onclick="go(1)" style="width:98%; position:fixed;left:1%;bottom:26%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Player 1 Passed Go</i></button>
 <button id="buttonsb" onclick="go(2)" style="width:98%; position:fixed;left:1%;bottom:21%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Player 2 Passed Go</i></button>
+<button id="buttonrob" onclick="roll()" style="width:98%; position:fixed;left:1%;bottom:31%;font-family:'Exo 2';font-size:20px" class="buttong"><i>Roll Dice</i></button>
 <script>
     var p1 = 3000;
     var p2 = 3000;
@@ -46,6 +47,9 @@ body {
     function go(player) {
         if (player == 1) { p1 = p1 + 1000; } else { p2 = p2 + 1000;}
         text();
+    }
+    function roll() {
+        document.getElementById("buttonrob").innerHTML = "Roll Dice | Last Roll: " + Math.random()*6 +" and "+ Math.random()*6
     }
     var battlefields = [0,0,0,0, //1: Player 1 | 0: Unowned | -1: Player 2
                         0,0,0,0,
